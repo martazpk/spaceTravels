@@ -1,6 +1,6 @@
 package tourist.domain;
 
-import flight.Flight;
+import flight.domain.Flight;
 import lombok.Getter;
 import lombok.Setter;
 import org.modelmapper.ModelMapper;
@@ -10,6 +10,7 @@ import javax.persistence.*;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
+
 @Getter
 @Setter
 @Entity
@@ -24,7 +25,7 @@ public class Tourist {
     private String description;
     @Temporal(TemporalType.DATE)
     private Calendar dateOfBirth;
-    @ManyToMany
+    @ManyToMany(mappedBy = "tourists")
     private Set<Flight> flights;
 
     public Tourist(TouristDto touristDto) {
@@ -35,15 +36,19 @@ public class Tourist {
         this.description = touristDto.getDescription();
         this.dateOfBirth = touristDto.getDateOfBirth();
 
-        this.flights=new HashSet<>();
+        this.flights = new HashSet<>();
     }
 
     private Tourist() {
     }
 
-    TouristDto asDto(){
-       ModelMapper modelMapper=new ModelMapper();
-       TouristDto dto=modelMapper.map(this,TouristDto.class);
-       return dto;
+    TouristDto asDto() {
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(this, TouristDto.class);
+
+    }
+
+    public void addFlight(Flight flight) {
+        flights.add(flight);
     }
 }
