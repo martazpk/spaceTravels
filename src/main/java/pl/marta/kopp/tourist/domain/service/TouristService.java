@@ -1,4 +1,4 @@
-package pl.marta.kopp.tourist.service;
+package pl.marta.kopp.tourist.domain.service;
 
 import org.springframework.stereotype.Service;
 import pl.marta.kopp.tourist.domain.Tourist;

@@ -19,6 +19,7 @@ public class FlightDto {
         this.priceValue = priceValue;
     }
 
+
     private FlightDto() {
     }
 }

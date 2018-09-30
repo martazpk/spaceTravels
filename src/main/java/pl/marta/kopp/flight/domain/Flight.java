@@ -37,11 +37,16 @@ public class Flight {
     private Flight() {
     }
 
-    FlightDto asDto() {
-        ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(this, FlightDto.class);
+    public FlightDto asDto() {
+       return new FlightDto(this.departure,this.arrival,this.maxNumberOfSeats,this.price.value());
 
     }
 
 
+    public void update(FlightDto dto) {
+        this.arrival=dto.getArrival();
+        this.departure=dto.getDeparture();
+        this.maxNumberOfSeats=dto.getMaxNumberOfSeats();
+        this.price=new Price(dto.getPriceValue());
+    }
 }
