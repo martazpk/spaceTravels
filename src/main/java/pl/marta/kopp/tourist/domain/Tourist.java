@@ -1,10 +1,10 @@
-package tourist.domain;
+package pl.marta.kopp.tourist.domain;
 
-import flight.domain.Flight;
+import pl.marta.kopp.flight.domain.Flight;
 import lombok.Getter;
 import lombok.Setter;
 import org.modelmapper.ModelMapper;
-import tourist.dto.TouristDto;
+import pl.marta.kopp.tourist.dto.TouristDto;
 
 import javax.persistence.*;
 import java.util.Calendar;
@@ -42,7 +42,7 @@ public class Tourist {
     private Tourist() {
     }
 
-    TouristDto asDto() {
+   public TouristDto asDto() {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(this, TouristDto.class);
 
@@ -50,5 +50,14 @@ public class Tourist {
 
     public void addFlight(Flight flight) {
         flights.add(flight);
+    }
+
+    public void update(TouristDto dto) {
+        this.name=dto.getName();
+        this.surname=dto.getSurname();
+        this.dateOfBirth=dto.getDateOfBirth();
+        this.description=dto.getDescription();
+        this.country=dto.getCountry();
+        this.sex=dto.getSex();
     }
 }

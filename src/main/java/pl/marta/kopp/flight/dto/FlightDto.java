@@ -1,4 +1,4 @@
-package flight.dto;
+package pl.marta.kopp.flight.dto;
 
 import lombok.Getter;
 import lombok.Setter;

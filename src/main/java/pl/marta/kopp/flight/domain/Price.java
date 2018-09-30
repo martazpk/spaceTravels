@@ -1,4 +1,4 @@
-package flight.domain;
+package pl.marta.kopp.flight.domain;
 
 import javax.persistence.Embeddable;
 import java.math.BigDecimal;

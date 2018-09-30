@@ -1,6 +1,6 @@
-package flight.domain;
+package pl.marta.kopp.flight.domain;
 
-import flight.dto.FlightDto;
+import pl.marta.kopp.flight.dto.FlightDto;
 import org.junit.Test;
 
 import java.util.Calendar;

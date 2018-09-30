@@ -1,8 +1,8 @@
-package tourist.dto;
+package pl.marta.kopp.tourist.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import tourist.domain.Sex;
+import pl.marta.kopp.tourist.domain.Sex;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;

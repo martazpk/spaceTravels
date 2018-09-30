@@ -1,7 +1,7 @@
-package tourist.domain;
+package pl.marta.kopp.tourist.domain;
 
 import org.junit.Test;
-import tourist.dto.TouristDto;
+import pl.marta.kopp.tourist.dto.TouristDto;
 
 import static org.junit.Assert.*;
 

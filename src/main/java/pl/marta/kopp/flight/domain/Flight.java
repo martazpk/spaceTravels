@@ -1,10 +1,10 @@
-package flight.domain;
+package pl.marta.kopp.flight.domain;
 
-import flight.dto.FlightDto;
+import pl.marta.kopp.flight.dto.FlightDto;
 import lombok.Getter;
 import lombok.Setter;
 import org.modelmapper.ModelMapper;
-import tourist.domain.Tourist;
+import pl.marta.kopp.tourist.domain.Tourist;
 
 import javax.persistence.*;
 import java.util.Calendar;
