@@ -10,8 +10,8 @@ import static org.junit.Assert.*;
 
 public class FlightTest {
 
-    private static final Calendar DEPARTURE = new GregorianCalendar(2013, 1, 28, 13, 24, 56);
-    private static final Calendar ARRIVAL = new GregorianCalendar(2014, 1, 23, 12, 12, 12);
+    private static final String DEPARTURE = "01/10/2018 16:30:50:000";
+    private static final String ARRIVAL = "01/10/2020 16:30:50:000";
     private static final int MAX_VALUE_OF_SEATS = 100;
     private static final String PRICE = "100";
 

@@ -7,12 +7,12 @@ import java.util.Calendar;
 @Getter
 @Setter
 public class FlightDto {
-    private Calendar departure;
-    private Calendar arrival;
+    private String departure;
+    private String arrival;
     private int maxNumberOfSeats;
     private String priceValue;
 
-    public FlightDto(Calendar departure, Calendar arrival, int maxNumberOfSeats, String priceValue) {
+    public FlightDto(String departure, String arrival, int maxNumberOfSeats, String priceValue) {
         this.departure = departure;
         this.arrival = arrival;
         this.maxNumberOfSeats = maxNumberOfSeats;

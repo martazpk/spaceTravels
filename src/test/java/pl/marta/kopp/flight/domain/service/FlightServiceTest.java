@@ -6,12 +6,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import pl.marta.kopp.flight.domain.Flight;
 import pl.marta.kopp.flight.dto.FlightDto;
 import pl.marta.kopp.flight.repository.FlightRepository;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 import static org.junit.Assert.*;
 
@@ -23,12 +20,12 @@ public class FlightServiceTest {
     private FlightRepository repository;
     private FlightService service;
 
-    private static final Calendar DEPARTURE = new GregorianCalendar(2018, 9, 30, 15, 14, 10);
-    private static final Calendar ARRIVAL = new GregorianCalendar(2020, 9, 30, 15, 14, 10);
+    private static final String DEPARTURE = "01/10/2018 14:32:55:123";
+    private static final String ARRIVAL = "01/10/2042 14:32:55:123";
     private static final int MAX_NUMBER_OF_SEAT = 10;
     private static final String PRICE = "10000.00";
     private static final String NEW_PRICE = "120.00";
-    private static final long INCORRECT_ID=1124534l;
+    private static final long INCORRECT_ID=1124534L;
 
     @Before
     public void setUp() throws Exception {
@@ -45,7 +42,7 @@ public class FlightServiceTest {
     }
 
 
-    private long givenFlight(Calendar departure, Calendar arrival, int maxNumberOfSeat, String price) {
+    private long givenFlight(String departure, String arrival, int maxNumberOfSeat, String price) {
         FlightDto initialDto=new FlightDto(departure,arrival,maxNumberOfSeat,price);
         return service.add(initialDto);
     }
