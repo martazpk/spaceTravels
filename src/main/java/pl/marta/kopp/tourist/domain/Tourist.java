@@ -3,7 +3,7 @@ package pl.marta.kopp.tourist.domain;
 import pl.marta.kopp.flight.domain.Flight;
 import lombok.Getter;
 import lombok.Setter;
-import org.modelmapper.ModelMapper;
+import pl.marta.kopp.flight.domain.JavaCalendarConverter;
 import pl.marta.kopp.tourist.dto.TouristDto;
 
 import javax.persistence.*;
@@ -23,7 +23,6 @@ public class Tourist {
     private Sex sex;
     private String country;
     private String description;
-    @Temporal(TemporalType.DATE)
     private Calendar dateOfBirth;
     @ManyToMany(mappedBy = "tourists")
     private Set<Flight> flights;
@@ -31,10 +30,10 @@ public class Tourist {
     public Tourist(TouristDto touristDto) {
         this.name = touristDto.getName();
         this.surname = touristDto.getSurname();
-        this.sex = touristDto.getSex();
+        this.sex = Sex.valueOf(touristDto.getSex());
         this.country = touristDto.getCountry();
         this.description = touristDto.getDescription();
-        this.dateOfBirth = touristDto.getDateOfBirth();
+        this.dateOfBirth = JavaCalendarConverter.stringToCalendar(touristDto.getDateOfBirth());
 
         this.flights = new HashSet<>();
     }
@@ -42,9 +41,12 @@ public class Tourist {
     private Tourist() {
     }
 
-   public TouristDto asDto() {
-        ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(this, TouristDto.class);
+    public TouristDto asDto() {
+       return new TouristDto.Builder(this.name,this.surname)
+               .country(this.country)
+               .dateOfBirth(JavaCalendarConverter.calendarToString(this.dateOfBirth))
+               .description(this.description)
+               .sex(this.sex.toString()).build();
 
     }
 
@@ -53,11 +55,11 @@ public class Tourist {
     }
 
     public void update(TouristDto dto) {
-        this.name=dto.getName();
-        this.surname=dto.getSurname();
-        this.dateOfBirth=dto.getDateOfBirth();
-        this.description=dto.getDescription();
-        this.country=dto.getCountry();
-        this.sex=dto.getSex();
+        this.name = dto.getName();
+        this.surname = dto.getSurname();
+        this.dateOfBirth = JavaCalendarConverter.stringToCalendar(dto.getDateOfBirth());
+        this.description = dto.getDescription();
+        this.country = dto.getCountry();
+        this.sex = Sex.valueOf(dto.getSex());
     }
 }

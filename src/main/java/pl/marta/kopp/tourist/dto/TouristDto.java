@@ -13,11 +13,10 @@ import java.util.Calendar;
 public class TouristDto {
     private String name;
     private String surname;
-    private Sex sex;
+    private String sex;
     private String country;
     private String description;
-    @Temporal(TemporalType.DATE)
-    private Calendar dateOfBirth;
+    private String dateOfBirth;
 
     public TouristDto(Builder builder) {
         this.name=builder.name;
@@ -35,10 +34,10 @@ public class TouristDto {
     public static class Builder {
         private String name;
         private String surname;
-        private Sex sex;
+        private String sex;
         private String country;
         private String description;
-        private Calendar dateOfBirth;
+        private String dateOfBirth;
 
         public Builder(String name, String surname) {
             this.name=name;
@@ -46,7 +45,7 @@ public class TouristDto {
         }
 
 
-        public Builder sex(Sex sex) {
+        public Builder sex(String sex) {
             this.sex = sex;
             return this;
         }
@@ -61,11 +60,10 @@ public class TouristDto {
             return this;
         }
 
-        public Builder dateOfBirth(Calendar calendar) {
+        public Builder dateOfBirth(String calendar) {
             this.dateOfBirth = calendar;
             return this;
         }
-
 
         public TouristDto build() {
             return new TouristDto(this);

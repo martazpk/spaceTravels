@@ -14,9 +14,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import pl.marta.kopp.flight.domain.service.FlightService;
 import pl.marta.kopp.flight.dto.FlightDto;
 
-
-import javax.servlet.annotation.HandlesTypes;
-
 import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
