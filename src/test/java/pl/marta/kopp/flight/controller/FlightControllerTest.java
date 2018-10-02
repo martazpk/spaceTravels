@@ -1,5 +1,6 @@
 package pl.marta.kopp.flight.controller;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import pl.marta.kopp.flight.domain.service.FlightService;
 import pl.marta.kopp.flight.dto.FlightDto;
 
+
+import javax.servlet.annotation.HandlesTypes;
 
 import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -30,6 +33,7 @@ public class FlightControllerTest {
     private static final String NEW_PRICE="300000.00";
     private static final String ARRIVAL = "01/10/2018 14:32:55:123";
     private static final String DEPARTURE = "01/10/2123 14:32:55:123";
+    private static final long WRONG_ID=1234567L;
 
 
     @Test
@@ -98,4 +102,10 @@ public class FlightControllerTest {
                 "\"maxNumberOfSeats\":\"123\",\"priceValue\":\"300000.00\"}",result.getContentAsString());
     }
 
+    @Test
+    public void shouldReturnNotFoundStatusWhenFlightDoesNotExist() throws Exception {
+        MockHttpServletResponse response = aFlightBy(WRONG_ID);
+
+        assertEquals(HttpStatus.NOT_FOUND.value(),response.getStatus());
+    }
 }
