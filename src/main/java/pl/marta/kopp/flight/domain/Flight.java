@@ -29,7 +29,7 @@ public class Flight {
     public Flight(FlightDto dto) {
         this.departure = JavaCalendarConverter.stringToCalendar(dto.getDeparture());
         this.arrival = JavaCalendarConverter.stringToCalendar(dto.getArrival());
-        this.maxNumberOfSeats = dto.getMaxNumberOfSeats();
+        this.maxNumberOfSeats = Integer.parseInt(dto.getMaxNumberOfSeats());
         this.price = new Price(dto.getPriceValue());
         this.tourists = new HashSet<>();
     }
@@ -41,7 +41,7 @@ public class Flight {
        return new FlightDto(
                JavaCalendarConverter.calendarToString(this.departure),
                JavaCalendarConverter.calendarToString(this.arrival),
-               this.maxNumberOfSeats,
+               Integer.toString(this.maxNumberOfSeats),
                this.price.value());
 
     }
@@ -50,7 +50,7 @@ public class Flight {
     public void update(FlightDto dto) {
         this.arrival=JavaCalendarConverter.stringToCalendar(dto.getArrival());
         this.departure=JavaCalendarConverter.stringToCalendar(dto.getDeparture());
-        this.maxNumberOfSeats=dto.getMaxNumberOfSeats();
+        this.maxNumberOfSeats=Integer.parseInt(dto.getMaxNumberOfSeats());
         this.price=new Price(dto.getPriceValue());
     }
 }

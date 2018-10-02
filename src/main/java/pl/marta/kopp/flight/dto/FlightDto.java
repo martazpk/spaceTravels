@@ -9,10 +9,10 @@ import java.util.Calendar;
 public class FlightDto {
     private String departure;
     private String arrival;
-    private int maxNumberOfSeats;
+    private String maxNumberOfSeats;
     private String priceValue;
 
-    public FlightDto(String departure, String arrival, int maxNumberOfSeats, String priceValue) {
+    public FlightDto(String departure, String arrival, String maxNumberOfSeats, String priceValue) {
         this.departure = departure;
         this.arrival = arrival;
         this.maxNumberOfSeats = maxNumberOfSeats;

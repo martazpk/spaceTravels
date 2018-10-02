@@ -22,7 +22,7 @@ public class FlightServiceTest {
 
     private static final String DEPARTURE = "01/10/2018 14:32:55:123";
     private static final String ARRIVAL = "01/10/2042 14:32:55:123";
-    private static final int MAX_NUMBER_OF_SEAT = 10;
+    private static final String MAX_NUMBER_OF_SEAT = "10";
     private static final String PRICE = "10000.00";
     private static final String NEW_PRICE = "120.00";
     private static final long INCORRECT_ID=1124534L;
@@ -42,7 +42,7 @@ public class FlightServiceTest {
     }
 
 
-    private long givenFlight(String departure, String arrival, int maxNumberOfSeat, String price) {
+    private long givenFlight(String departure, String arrival, String maxNumberOfSeat, String price) {
         FlightDto initialDto=new FlightDto(departure,arrival,maxNumberOfSeat,price);
         return service.add(initialDto);
     }

@@ -12,7 +12,7 @@ public class FlightTest {
 
     private static final String DEPARTURE = "01/10/2018 16:30:50:000";
     private static final String ARRIVAL = "01/10/2020 16:30:50:000";
-    private static final int MAX_VALUE_OF_SEATS = 100;
+    private static final String MAX_VALUE_OF_SEATS = "123";
     private static final String PRICE = "100";
 
     @Test
